@@ -28,7 +28,7 @@ test('Convert direct Numbers', function (t) {
 test('First state', function (t) {
     var I = { value: 1, repeat_times: 3, can_substract: [] }
     var initial = { repeat: 0, previous: { value : 0 } }
-    var expected = { repeat: 1, previous: I }
+    var expected = { repeat: 1, previous: I, isSubstraction: false }
     t.deepEqual(romanToArabic._.updateState(I, initial),expected)
     t.end()
 })
@@ -36,17 +36,26 @@ test('First state', function (t) {
 test('Same value state', function (t) {
     var I = { value: 1, repeat_times: 3, can_substract: [] }
     var initial = { repeat: 1, previous: I }
-    var expected = { repeat: 2, previous: I }
+    var expected = { repeat: 2, previous: I, isSubstraction: false }
     t.deepEqual(romanToArabic._.updateState(I, initial),expected)
     t.end()
 })
 
-test('Diferent value state', function (t) {
+test('Diferent value state sum', function (t) {
     var X = { value: 10, repeat_times: 3, can_substract: [] }
     var I = { value: 1, repeat_times: 3, can_substract: [] }
     var initial = { repeat: 3, previous: I }
-    var expected = { repeat: 1, previous: X }
+    var expected = { repeat: 1, previous: X, isSubstraction: false }
     t.deepEqual(romanToArabic._.updateState(X, initial),expected)
+    t.end()
+})
+
+test('Diferent value state sub', function (t) {
+    var X = { value: 10, repeat_times: 3, can_substract: [] }
+    var I = { value: 1, repeat_times: 3, can_substract: [] }
+    var initial = { repeat: 3, previous: X }
+    var expected = { repeat: 1, previous: I, isSubstraction: true }
+    t.deepEqual(romanToArabic._.updateState(I, initial),expected)
     t.end()
 })
 
@@ -73,11 +82,39 @@ test('previous smaller than current', function (t) {
     t.end()
 })
 
-//---------------------- Validator ----------------------------------------
+//---------------------- Validators ----------------------------------------
 
-test('same value', function (t) {
-    var previous = { value: 1, repeat_times: 3, can_substract: [] }
+test('more ocurrencies than valid', function (t) {
+    var context = { repeat: 4, previous: { value : 0 } }
     var current = { value: 1, repeat_times: 3, can_substract: [] }
-    t.deepEqual(romanToArabic._.isValidState(previous, current),true)
+    t.throws(() => romanToArabic._.validateNumberOfOcurrencies(current, context))
+    t.end()
+})
+
+test('less ocurrencies than valid', function (t) {
+    var context = { repeat: 2, previous: { value : 0 } }
+    var current = { value: 1, repeat_times: 3, can_substract: [] }
+    t.doesNotThrow(() => romanToArabic._.validateNumberOfOcurrencies(current, context))
+    t.end()
+})
+
+test('is A Value That Can Be Substracted second one', function (t) {
+    var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: true }
+    var current = { value: 1, repeat_times: 3, can_substract: [] }
+    t.throws(() => romanToArabic._.onlyOneSubstraction(current, context))
+    t.end()
+})
+
+test('is A Value That Can Be Substracted first one', function (t) {
+    var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: false }
+    var current = { value: 1, repeat_times: 3, can_substract: [] }
+    t.doesNotThrow(() => romanToArabic._.onlyOneSubstraction(current, context))
+    t.end()
+})
+
+test('is A Value That Can Be Substracted reset one', function (t) {
+    var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: true }
+    var current = { value: 100, repeat_times: 3, can_substract: [] }
+    t.doesNotThrow(() => romanToArabic._.onlyOneSubstraction(current, context))
     t.end()
 })
