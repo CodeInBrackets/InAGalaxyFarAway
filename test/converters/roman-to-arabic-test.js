@@ -2,7 +2,7 @@
 var test = require('blue-tape'),
     proxyquire = require('proxyquire'),
     sinon = require('sinon'),
-    romanToArabicConverter = require('../../lib/converters/roman-to-arabic')
+    romanToArabic = require('../../lib/converters/roman-to-arabic')
 
 var map = {
     M: 1000,
@@ -16,9 +16,13 @@ var map = {
 
 test('Convert direct Numbers', function (t) {
     for (var numeral in map) {
-        t.deepEqual(romanToArabicConverter(numeral),map[numeral])
+        t.equal(romanToArabic(numeral),map[numeral])
     }
     t.end()
 });
 
+test('Get valid Subgroups', function (t) {
+    t.deepEqual(romanToArabic._.getSubgroups('X','XXXIX'),['XXX', 'IX'])
+    t.end()
+});
 
