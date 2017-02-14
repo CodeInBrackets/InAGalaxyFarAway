@@ -27,7 +27,7 @@ test('Convert direct Numbers', function (t) {
 
 test('First state', function (t) {
     var I = { value: 1, repeat_times: 3, can_substract: [] }
-    var initial = { repeat: 0, previous: undefined }
+    var initial = { repeat: 0, previous: { value : 0 } }
     var expected = { repeat: 1, previous: I }
     t.deepEqual(romanToArabic._.updateState(I, initial),expected)
     t.end()
