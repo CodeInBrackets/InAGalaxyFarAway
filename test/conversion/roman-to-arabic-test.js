@@ -1,7 +1,5 @@
 'use strict'
 var test = require('blue-tape'),
-    proxyquire = require('proxyquire'),
-    sinon = require('sinon'),
     romanToArabic = require('../../lib/conversion/roman-to-arabic')
 
 var map = {
