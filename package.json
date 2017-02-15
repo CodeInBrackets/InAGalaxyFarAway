@@ -4,9 +4,10 @@
   "description": "in a galaxy far away they use some other words",
   "main": "index.js",
   "scripts": {
-      "start": "node .",
-      "test": "tape test/**/*-test.js | faucet",
-      "test-dev": "nodemon ./node_modules/tape/bin/tape test/**/*-test.js | faucet"
+    "start": "node .",
+    "start-dev": "nodemon .",
+    "test": "tape test/**/*-test.js | faucet",
+    "test-dev": "nodemon ./node_modules/tape/bin/tape test/**/*-test.js | faucet"
   },
   "repository": {
     "type": "git",
