@@ -98,23 +98,37 @@ test('less ocurrencies than valid', function (t) {
     t.end()
 })
 
-test('is A Value That Can Be Substracted second one', function (t) {
+test('only one substraction second one', function (t) {
     var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: true }
     var current = { value: 1, repeat_times: 3, can_substract: [] }
     t.throws(() => romanToArabic._.onlyOneSubstraction(current, context))
     t.end()
 })
 
-test('is A Value That Can Be Substracted first one', function (t) {
+test('only one substraction first one', function (t) {
     var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: false }
     var current = { value: 1, repeat_times: 3, can_substract: [] }
     t.doesNotThrow(() => romanToArabic._.onlyOneSubstraction(current, context))
     t.end()
 })
 
-test('is A Value That Can Be Substracted reset one', function (t) {
+test('only one substraction reset one', function (t) {
     var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [] }, isSubstraction: true }
     var current = { value: 100, repeat_times: 3, can_substract: [] }
     t.doesNotThrow(() => romanToArabic._.onlyOneSubstraction(current, context))
+    t.end()
+})
+
+test('is A Value that can be substracted', function (t) {
+    var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [1] }, isSubstraction: true }
+    var current = { value: 1, repeat_times: 3, can_substract: [] }
+    t.doesNotThrow(() => romanToArabic._.isAValueThatCanBeSubstracted(current, context))
+    t.end()
+})
+
+test('is A Value that can not be substracted', function (t) {
+    var context = { repeat: 2, previous: { value: 10, repeat_times: 3, can_substract: [1] }, isSubstraction: true }
+    var current = { value: 1000, repeat_times: 3, can_substract: [] }
+    t.throws(() => romanToArabic._.isAValueThatCanBeSubstracted(current, context))
     t.end()
 })
