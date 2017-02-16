@@ -1,7 +1,7 @@
 {
-  "name": "in-a-galaxy-far-away",
+  "name": "roman-arabic-converter",
   "version": "0.0.1",
-  "description": "in a galaxy far away they use some other words",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CodeInBrackets/InAGalaxyFarAway.git"
+    "url": "git+https://github.com/CodeInBrackets/Roman-Arabic-Converter.git"
   },
   "author": "kanekotic",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CodeInBrackets/InAGalaxyFarAway/issues"
+    "url": "https://github.com/CodeInBrackets/Roman-Arabic-Converter/issues"
   },
-  "homepage": "https://github.com/CodeInBrackets/InAGalaxyFarAway#readme",
+  "homepage": "https://github.com/CodeInBrackets/Roman-Arabic-Converter#readme",
   "devDependencies": {
     "blue-tape": "^1.0.0",
     "faucet": "0.0.1",
