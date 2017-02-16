@@ -1,7 +1,5 @@
 'use strict'
 var test = require('blue-tape'),
-    proxyquire = require('proxyquire'),
-    sinon = require('sinon'),
     romanToArabic = require('../../lib/conversion/roman-to-arabic')
 
 var map = {
@@ -18,7 +16,7 @@ var map = {
 
 test('Convert direct Numbers', function (t) {
     for (var numeral in map) {
-        t.equal(romanToArabic(numeral),map[numeral])
+        t.equal(romanToArabic.convert(numeral),map[numeral])
     }
     t.end()
 })
