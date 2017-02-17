@@ -30,6 +30,9 @@ var converter = require('roman-arabic-converter')
 converter.ArabicToRoman(2) //"II"
 ```
 
+## TODO
+- [ ] Improve the naming convention
+- [ ] Add more top level unit tests
 
 ### Logo
 
