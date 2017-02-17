@@ -1,6 +1,7 @@
 # ![logomakr_1bifr0](https://cloud.githubusercontent.com/assets/3071208/23046575/ea4241d6-f46f-11e6-865a-6c48da938436.png)
 
 [![Build Status](https://travis-ci.org/CodeInBrackets/Roman-Arabic-Converter.svg?branch=master)](https://travis-ci.org/CodeInBrackets/Roman-Arabic-Converter)
+[![Code Climate](https://codeclimate.com/github/CodeInBrackets/Roman-Arabic-Converter/badges/gpa.svg)](https://codeclimate.com/github/CodeInBrackets/Roman-Arabic-Converter)
 
 ## Mission
 
