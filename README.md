@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/CodeInBrackets/Roman-Arabic-Converter.svg?branch=master)](https://travis-ci.org/CodeInBrackets/Roman-Arabic-Converter)
 [![Code Climate](https://codeclimate.com/github/CodeInBrackets/Roman-Arabic-Converter/badges/gpa.svg)](https://codeclimate.com/github/CodeInBrackets/Roman-Arabic-Converter)
+[![Dependency Status](https://gemnasium.com/badges/github.com/CodeInBrackets/Roman-Arabic-Converter.svg)](https://gemnasium.com/github.com/CodeInBrackets/Roman-Arabic-Converter)
+
 
 ## Mission
 
