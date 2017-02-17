@@ -1,6 +1,6 @@
 'use strict'
-var test = require('blue-tape'),
-    romanToArabic = require('../../lib/conversion/roman-to-arabic')
+var test = require('tape'),
+    romanToArabic = require('../lib/roman-to-arabic')
 
 var map = {
     M: 1000,

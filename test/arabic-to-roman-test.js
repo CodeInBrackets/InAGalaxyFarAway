@@ -1,14 +1,11 @@
 'use strict'
-var test = require('blue-tape'),
-    arabicToRuman = require('../../lib/conversion/arabic-to-roman')
+var test = require('tape'),
+    arabicToRuman = require('../lib/arabic-to-roman')
 
 //---------------------- Convert ----------------------------------------
 
 test('Convert direct Numbers', function (t) {
-    
-    // for (var numeral in map) {
-    //     t.equal(arabicToRuman(numeral),map[numeral])
-    // }
+    //implement
     t.end()
 })
 
