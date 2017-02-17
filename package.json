@@ -7,6 +7,7 @@
     "start": "node .",
     "start-dev": "nodemon .",
     "test": "tape test/**/*-test.js | faucet",
+    "test-coverage": "istanbul cover tape ./test/**/*-test.js",
     "test-dev": "nodemon ./node_modules/tape/bin/tape test/**/*-test.js | faucet"
   },
   "repository": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "faucet": "0.0.1",
     "nodemon": "^1.11.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "istanbul": "^0.4.5"
   }
 }
